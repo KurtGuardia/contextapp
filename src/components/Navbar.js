@@ -6,8 +6,8 @@ const Navbar = () => {
     <ThemeContext.Consumer>
       {(context) => {
         const { isLightTheme, light, dark } = context;
+        console.log(context);
         const theme = isLightTheme.isLightTheme ? light : dark;
-
         return (
           <nav style={{ background: theme.ui, color: theme.syntax }}>
             <h1>Context App</h1>

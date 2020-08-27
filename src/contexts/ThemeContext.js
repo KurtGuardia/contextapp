@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 export const ThemeContext = React.createContext();
 
 const ThemeContextProvider = (props) => {
-  const [islightTheme, setIsLightTheme] = useState(true);
+  const [isLightTheme, setIsLightTheme] = useState(true);
   const [light, setLight] = useState({
     syntax: '#555',
     ui: '#ddd',
@@ -15,10 +15,14 @@ const ThemeContextProvider = (props) => {
     bg: '#555',
   });
 
+  const toggleTheme = () => {
+    setIsLightTheme(!isLightTheme);
+  };
+
   return (
     <ThemeContext.Provider
       value={{
-        islightTheme: islightTheme,
+        isLightTheme: { isLightTheme, toggleTheme },
         light: {
           ...light,
           setLight,
